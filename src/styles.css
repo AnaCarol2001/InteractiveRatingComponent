@@ -153,7 +153,7 @@ button {
   cursor: pointer;
 }
 
-.rating__form__field label:is(:focus, :hover) {
+.rating__form__field input:is(:hover, :focus) ~ label {
   color: var(--clr-blue-800);
   background-color: var(--clr-orange-400);
 }
