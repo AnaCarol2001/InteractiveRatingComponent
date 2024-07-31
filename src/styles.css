@@ -1,0 +1,260 @@
+:root {
+  --clr-white: hsl(0, 0%, 100%);
+  --clr-grey-100: hsl(217, 12%, 63%);
+  --clr-blue-700: hsl(213, 19%, 18%);
+  --clr-blue-800: hsl(215, 27%, 12%);
+  --clr-blue-900: hsl(216, 12%, 8%);
+  --clr-orange-400: hsl(25, 97%, 53%);
+
+  --ff-overpass: "Overpass", sans-serif;
+  --fs-400: 0.9375rem;
+}
+
+/* Reset  - partial from source: https://piccalil.li/blog/a-more-modern-css-reset/ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Prevent font size inflation */
+html {
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+}
+
+body,
+h1,
+h2,
+p {
+  margin: 0;
+}
+
+body {
+  min-height: 100vh;
+  line-height: 1.5;
+  font-family: var(--ff-overpass);
+}
+
+h1,
+h2,
+button,
+input,
+label {
+  line-height: 1.1;
+}
+
+h1,
+h2 {
+  text-wrap: balance;
+}
+
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+input,
+button {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+/* Utilities */
+
+/* Visually-hidden - source: https://www.scottohara.me/blog/2017/04/14/inclusively-hidden.html */
+.sr-only {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+/* Animations */
+@keyframes pulse {
+  0%,
+  100% {
+    scale: 1;
+  }
+
+  50% {
+    scale: 1.1;
+  }
+}
+
+/* Components */
+
+.rating,
+.rating-thanksMsg {
+  position: absolute;
+  top: 50%;
+  transform: translate3D(0, -50%, 0);
+  margin-inline: 1.5rem;
+  padding: 1.5rem;
+  background: linear-gradient(
+    var(--clr-blue-700) -20%,
+    var(--clr-blue-800) 120%
+  );
+  color: var(--clr-white);
+  font-size: 0.875rem;
+  border-radius: 1rem;
+}
+
+.rating__star,
+.rating__form__text,
+.rating__form__field {
+  margin-bottom: 1.5rem;
+}
+
+.rating__star svg {
+  animation: pulse 1s ease-in-out;
+}
+
+.rating__form__text {
+  display: grid;
+  gap: 0.875rem;
+  color: var(--clr-grey-100);
+}
+
+.rating__form__text h2 {
+  font-size: 1.5rem;
+  color: var(--clr-white);
+}
+
+.rating__form__field {
+  padding: 0;
+  border: none;
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.rating__star,
+.rating__form__field label {
+  display: grid;
+  width: var(--width-bg, 2.86em);
+  aspect-ratio: 1;
+  place-content: center;
+  background-color: var(--clr-blue-700);
+  border-radius: 100em;
+}
+
+.rating__form__field label {
+  --width-bg: 3.143em;
+  line-height: 1;
+  font-weight: 700;
+  color: var(--clr-grey-100);
+  cursor: pointer;
+}
+
+.rating__form__field label:is(:focus, :hover) {
+  color: var(--clr-blue-800);
+  background-color: var(--clr-orange-400);
+}
+
+.rating__form__field input:checked ~ label {
+  color: var(--clr-blue-800);
+  background-color: var(--clr-white);
+}
+
+.rating__form button[type="submit"] {
+  width: 100%;
+  background-color: var(--clr-orange-400);
+  padding-block: 1em;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.13em;
+  border: none;
+  border-radius: 100em;
+  cursor: pointer;
+}
+
+.rating__form button[type="submit"]:is(:focus, :hover) {
+  background-color: var(--clr-white);
+}
+
+.rating-thanksMsg {
+  text-align: center;
+  display: grid;
+  place-items: center;
+  gap: 1.5rem;
+}
+
+.rating-thanksMsg h2 {
+  order: 2;
+}
+
+.rating-thanksMsg__output {
+  order: 1;
+  background-color: var(--clr-blue-700);
+  padding: 0.5em 1em;
+  border-radius: 10em;
+  color: var(--clr-orange-400);
+  line-height: 1;
+}
+
+.rating-thanksMsg__msg {
+  order: 3;
+  color: var(--clr-grey-100);
+}
+
+@media screen and (max-width: 375px) {
+  .rating,
+  .rating-thanksMsg {
+    margin-inline: 1rem;
+    padding: 1rem;
+  }
+}
+
+@media screen and (min-width: 445px) {
+  .rating,
+  .rating-thanksMsg {
+    left: 50%;
+    transform: translate3d(-50%, -50%, 0);
+    margin-inline: 0;
+    width: 100%;
+    max-width: 413px;
+    padding: 2rem;
+    font-size: 1rem;
+    border-radius: 2rem;
+  }
+
+  .rating__star,
+  .rating__form__text,
+  .rating__form__field {
+    margin-bottom: 2rem;
+  }
+
+  .rating__form__text h2 {
+    font-size: 1.75rem;
+  }
+}
+
+/* Layout */
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  background-color: var(--clr-blue-800);
+  color: var(--clr-grey-100);
+  padding: 1rem;
+}
+
+footer a {
+  color: var(--clr-orange-400);
+}
+
+/* Pages */
+
+.page {
+  background-color: var(--clr-blue-900);
+}
+
+/* https://sass-guidelin.es/#architecture */
