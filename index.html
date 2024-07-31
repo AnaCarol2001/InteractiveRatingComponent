@@ -19,9 +19,21 @@
     <title>Frontend Mentor | Interactive rating component</title>
   </head>
   <body class="page">
-    <main>
-      <!-- Rating state start -->
-      <div class="rating">
+    <main></main>
+
+    <footer class="attribution">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+        >Frontend Mentor</a
+      >. Coded by
+      <a
+        href="https://www.frontendmentor.io/profile/AnaCarol2001"
+        target="_blank"
+        >Ana Carolina</a
+      >.
+    </footer>
+    <template id="rating-template" hidden>
+      <div id="rating" class="rating">
         <div class="rating__star">
           <svg
             width="17"
@@ -36,7 +48,7 @@
           </svg>
         </div>
 
-        <form class="rating__form">
+        <form id="rating-form" class="rating__form">
           <div class="rating__form__text">
             <h2>How did we do?</h2>
             <p>
@@ -103,26 +115,9 @@
           <button type="submit">Submit</button>
         </form>
       </div>
-
-      <!-- Rating state end -->
-    </main>
-
-    <footer class="attribution">
-      Challenge by
-      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
-        >Frontend Mentor</a
-      >. Coded by
-      <a
-        href="https://www.frontendmentor.io/profile/AnaCarol2001"
-        target="_blank"
-        >Ana Carolina</a
-      >.
-    </footer>
-
-    <!-- Thank you state start -->
-
-    <template hidden>
-      <div class="rating-thanksMsg">
+    </template>
+    <template id="rating-success-template" hidden>
+      <div id="rating-success" class="rating-thanksMsg">
         <svg
           aria-hidden="true"
           width="162"
@@ -227,6 +222,6 @@
         </p>
       </div>
     </template>
-    <!-- Thank you state end -->
+    <script src="./src/app.js"></script>
   </body>
 </html>
