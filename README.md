@@ -32,8 +32,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: []()
-- Live Site URL: []()
+- Solution URL: [https://github.com/AnaCarol2001/InteractiveRatingComponent](https://github.com/AnaCarol2001/InteractiveRatingComponent)
+- Live Site URL: [https://anacarol2001.github.io/InteractiveRatingComponent/](https://anacarol2001.github.io/InteractiveRatingComponent/)
 
 ## My process
 
